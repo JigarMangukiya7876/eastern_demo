@@ -1,6 +1,8 @@
 import 'package:easternapp/app/constants/ImageConstant.dart';
 import 'package:flutter/material.dart';
 
+import '../app/constants/ImageConstant.dart';
+
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -13,11 +15,40 @@ class _HomePageState extends State<HomePage> {
       child: Scaffold(
         appBar: getAppBar(context),
         body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             searchBarWidget(context),
             blackHeadLine(context),
             getStackAboveImage(context),
             getJustLandedText(context),
+            SizedBox(height: 8),
+            Expanded(
+              child: ListView.builder(
+                padding: EdgeInsets.only(right: 36),
+                itemCount: 3,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: EdgeInsets.only(left: 36),
+                    child: Column(
+                      children: <Widget>[
+                        Container(
+                          width: 120,
+                          height: 190,
+                          padding: EdgeInsets.all(8),
+                          color: Colors.grey.withOpacity(0.4),
+                          child: Image.asset(imageBanner),
+                        ),
+                        SizedBox(
+                          height: 16,
+                        ),
+                        Text('abc')
+                      ],
+                    ),
+                  );
+                },
+              ),
+            )
           ],
         ),
       ),
@@ -104,6 +135,14 @@ class _HomePageState extends State<HomePage> {
                           letterSpacing: 1,
                           fontSize: 14),
                     ),
+                    SizedBox(
+                      height: 8,
+                    ),
+                    Container(
+                      margin: EdgeInsets.symmetric(horizontal: 50),
+                      height: 2,
+                      color: Colors.grey,
+                    )
                   ],
                 ),
               ),
@@ -185,7 +224,7 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-    );  
+    );
   }
 
   blackHeadLine(BuildContext context) {
