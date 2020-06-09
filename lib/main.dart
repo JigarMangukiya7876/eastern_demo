@@ -102,7 +102,7 @@ class _MainPageState extends State<MainPage> {
         BottomNavigationBarItem(
           icon: Padding(padding: EdgeInsets.all(4), child: Icon(Icons.person)),
           title: Text(
-            'MY ACCOUNT',
+            'MYACCOUNT',
             style: TextStyle(fontWeight: FontWeight.w500),
           ),
         ),
